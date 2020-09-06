@@ -1,0 +1,29 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --black: #333;
+  --darkPurple: #321947;
+  --lightPurple: #f1ebf6;
+  --mediumPurple: #8241b8;
+  --green: #1c826c;
+  --darkGreen: #166655;
+}
+
+body {
+  margin: 0;
+  color: var(--black, #333);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

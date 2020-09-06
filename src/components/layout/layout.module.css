@@ -1,0 +1,107 @@
+.layoutWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  /* 
+
+   ~ Code Attribution for background image ~
+   https://www.gradientmagic.com/collection/lightbg/gradient/1584621486136 
+  
+  */
+  background-image: repeating-radial-gradient(
+      circle at center center,
+      transparent 0px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 3px,
+      transparent 3px,
+      transparent 5px,
+      rgba(0, 0, 0, 0.03) 5px,
+      rgba(0, 0, 0, 0.03) 7px
+    ),
+    repeating-radial-gradient(
+      circle at center center,
+      rgb(255, 255, 255) 0px,
+      rgb(255, 255, 255) 9px,
+      rgb(255, 255, 255) 9px,
+      rgb(255, 255, 255) 21px,
+      rgb(255, 255, 255) 21px,
+      rgb(255, 255, 255) 31px,
+      rgb(255, 255, 255) 31px,
+      rgb(255, 255, 255) 40px
+    );
+  background-size: 20px 20px;
+
+  padding: 1rem;
+  flex: 1;
+}
+
+main h1 {
+  margin-bottom: 0.2rem;
+}
+
+main p {
+  margin-top: 0;
+}
+
+form {
+  margin-bottom: 3rem;
+}
+
+form input {
+  padding: 2px;
+  height: 35px;
+  margin-right: 0.7rem;
+  margin-left: 0.5rem;
+  border: 1px solid #23a78a;
+}
+
+form input:focus {
+  outline: 1px solid var(--darkGreen, #166655);
+}
+
+form label {
+  font-weight: bold;
+}
+
+form button {
+  font-size: 100%;
+  font-family: inherit;
+  color: white;
+  background-color: var(--green, #1c826c);
+  padding: 6px 12px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+form button:active {
+  position: relative;
+  top: 2px;
+}
+
+form button:hover {
+  background-color: var(--darkGreen, #166655);
+}
+
+.total {
+  margin-bottom: 1.5rem;
+}
+
+.resultsList {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.buttonsWrapper {
+  margin: 2rem 0;
+  display: inline-flex;
+}
