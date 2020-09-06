@@ -40,6 +40,7 @@ main {
 }
 
 main h1 {
+  font-size: 1.6rem;
   margin-bottom: 0.2rem;
 }
 
@@ -104,4 +105,10 @@ form button:hover {
 .buttonsWrapper {
   margin: 2rem 0;
   display: inline-flex;
+}
+
+@media screen and (min-width: 450px) {
+  main h1 {
+    font-size: 1.9rem;
+  }
 }
