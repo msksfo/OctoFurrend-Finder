@@ -1,8 +1,5 @@
 import React, { useState } from "react"
 
-import PropTypes, { resetWarningCache } from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
 import layoutStyles from "../layout/layout.module.css"
 
 // components
@@ -16,16 +13,6 @@ const Layout = ({ children }) => {
   const [userCount, setUserCount] = useState(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [paginationButtons, setPaginationButtons] = useState([])
-
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   const handleChange = e => {
     setSearchQuery(e.target.value)
@@ -95,6 +82,8 @@ const Layout = ({ children }) => {
       }
     })
 
+    // TODO: get the buttons in the right order
+
     setPaginationButtons(urlsAndButtonText)
   }
 
@@ -124,7 +113,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className={layoutStyles.layoutWrapper}>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header />
 
       <main>
         {children}
@@ -199,9 +188,4 @@ const Layout = ({ children }) => {
   )
 }
 
-/*
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-*/
 export default Layout
