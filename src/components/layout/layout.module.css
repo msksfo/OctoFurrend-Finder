@@ -104,11 +104,19 @@ form button:hover {
 
 .buttonsWrapper {
   margin: 2rem 0;
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 @media screen and (min-width: 450px) {
   main h1 {
     font-size: 1.9rem;
+  }
+
+  .buttonsWrapper {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    max-width: 400px;
   }
 }
