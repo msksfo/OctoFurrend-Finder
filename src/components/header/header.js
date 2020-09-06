@@ -5,7 +5,11 @@ import octocatDetective from "../../images/octocatDetective.png"
 
 const Header = ({ siteTitle }) => (
   <header>
-    <img className={headerStyles.inspectocat} src={octocatDetective} />
+    <img
+      className={headerStyles.inspectocat}
+      src={octocatDetective}
+      alt="Inspectocat"
+    />
     <h1 className={headerStyles.title}>OctoFurrend Finder</h1>
   </header>
 )
