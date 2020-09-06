@@ -1,4 +1,4 @@
-header {
+.header {
   background-image: linear-gradient(337deg, rgb(50, 25, 71), rgb(220, 77, 85));
   padding: 1rem;
   display: flex;
