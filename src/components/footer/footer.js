@@ -3,7 +3,7 @@ import footerStyles from "../footer/footer.module.css"
 
 const footer = () => {
   return (
-    <footer>
+    <footer className={footerStyles.footer}>
       <small>
         &copy; {new Date().getFullYear()}{" "}
         <a
