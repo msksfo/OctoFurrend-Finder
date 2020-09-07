@@ -66,6 +66,8 @@ form input:focus {
 
 form label {
   font-weight: bold;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 form button {
@@ -74,7 +76,8 @@ form button {
   color: white;
   background-color: var(--green, #1c826c);
   padding: 6px 12px;
-  display: inline-block;
+  display: block;
+  width: 100%;
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -118,5 +121,17 @@ form button:hover {
     justify-content: flex-start;
     flex-wrap: nowrap;
     max-width: 400px;
+  }
+}
+
+@media screen and (min-width: 350px) {
+  form label {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+
+  form button {
+    width: auto;
+    display: inline;
   }
 }
