@@ -122,7 +122,12 @@ const Layout = ({ children }) => {
 
   return (
     <div className={layoutStyles.layoutWrapper}>
-      <Header />
+      <Header
+        reset={() => {
+          resetState()
+          setErrorMessage(null)
+        }}
+      />
 
       <main>
         {children}
