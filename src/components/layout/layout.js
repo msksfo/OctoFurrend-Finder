@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
   const [users, setUsers] = useState([])
   const [userCount, setUserCount] = useState(null)
   const [searchQuery, setSearchQuery] = useState("")
+  const [errorMessage, setErrorMessage] = useState(null)
   const [paginationButtons, setPaginationButtons] = useState([])
 
   const handleChange = e => {
@@ -19,9 +20,6 @@ const Layout = ({ children }) => {
   }
 
   const handleSubmit = e => {
-    // TODO: account for rate limits
-    // TODO: encodeURIComponent()
-
     e.preventDefault()
 
     // Validate user input by trimming away whitespace
@@ -39,8 +37,6 @@ const Layout = ({ children }) => {
   }
 
   const handleClick = async e => {
-    // TODO: can i refactor this to use fetchUsers function?
-
     // If this is truthy, it means user has already clicked the summary element once. So no need to fetch the same data again.
     let additionalDetails = e.nativeEvent.target.parentElement.parentElement.getAttribute(
       "data-details"
@@ -82,13 +78,11 @@ const Layout = ({ children }) => {
       }
     })
 
-    // TODO: get the buttons in the right order
-
     setPaginationButtons(urlsAndButtonText)
   }
 
   const fetchUsers = async url => {
-    // TODO: implement better error handling for different types of errors
+    setErrorMessage(null)
 
     try {
       const response = await fetch(url)
@@ -103,12 +97,27 @@ const Layout = ({ children }) => {
 
       const data = await response.json()
 
+      // account for weird user input that breaks the app
+      if (data.message) {
+        console.log(data.message)
+        setErrorMessage("There seems to be a problem. Please try agin.")
+        resetState()
+        return
+      }
+
       setUserCount(data.total_count)
 
       setUsers(data.items)
     } catch (e) {
       console.log(`Error: ${e}`)
     }
+  }
+
+  const resetState = () => {
+    setUsers([])
+    setUserCount(null)
+    setSearchQuery("")
+    setPaginationButtons([])
   }
 
   return (
@@ -134,6 +143,7 @@ const Layout = ({ children }) => {
         </form>
 
         <div>
+          {errorMessage && <p>{errorMessage}</p>}
           <p className={layoutStyles.total}>
             {userCount !== null && `Total furrends found: `}
             <span
