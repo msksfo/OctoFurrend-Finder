@@ -14,7 +14,11 @@ const IndexPage = () => (
     </Helmet>
     <Layout>
       <h1>Hi furrrrends!</h1>
-      <p> I'm Inspectocat. Let's find some amazing Github users, shall we?</p>
+      <p>
+        {" "}
+        I'm Basil Cuddlywhiskers. Let's find some amazing Github users, shall
+        we?
+      </p>
     </Layout>
   </div>
 )
